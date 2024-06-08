@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row mt-3 mb-3">
+      <div class="ml-auto d-flex flex-row options-blue" [style.borderRadius]="'0 0 0 5px'">
+        <span class="option-action icon-txt d-flex flex-column" matTooltip="{{ _formServ.idioma === 'COP' ? 'Menú' : 'Speisekarte' }}">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </span>
+        <span (click)="regresar()" class="option-action icon-txt d-flex flex-column" *ngIf="_formServ.page !== 1"  matTooltip="{{ _formServ.idioma === 'COP' ? 'Regresar' : 'geh zurück' }}">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </span>
+        <span (click)="sgtepage()" class="option-action icon-txt d-flex flex-column" matTooltip="{{ _formServ.idioma === 'COP' ? 'Siguiente' : 'folgende' }}">
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </span>
+        <span (click)="inicio()" class="option-action icon-txt d-flex flex-column" *ngIf="_formServ.page !== 1" matTooltip="{{ _formServ.idioma === 'COP' ? 'Inicio' : 'Start' }}">
+          <mat-icon>home</mat-icon>
+        </span>
+      </div>
+    </div>
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeLanguage('COP')">{{ _formServ.idioma === 'COP' ? 'Español' : 'Spanisch' }}</button>
+      <button mat-menu-item (click)="changeLanguage('EUR')">{{ _formServ.idioma === 'COP' ? 'Alemán' : 'Deutsch' }}</button>
+      <button mat-menu-item (click)="viewHistory()">{{ _formServ.idioma === 'COP' ? 'Ver Historial' : 'Siehe Geschichte' }}</button>
+    </mat-menu>
+</div>

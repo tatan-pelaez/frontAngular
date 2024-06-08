@@ -1,0 +1,23 @@
+.options-blue {
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 0 0 0 5px;
+    align-items: center;
+  }
+  
+  .option-action {
+    margin-right: 10px;
+    text-align: center;
+  }
+  
+  .mat-icon-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mat-icon-button small {
+    display: block;
+    margin-top: 5px;
+  }

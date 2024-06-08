@@ -1,0 +1,61 @@
+<div *ngFor="let historial of datoshistorial">
+    <div class="row">
+        <div class="col">
+            <h2>{{ _formServ.idioma === 'COP' ? 'Historial' : 'Aufzeichnen' }} {{historial.created_at.split("T").join(" ").split(".000000Z").join(" ")}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'País Destino' : 'Zielland' }}:</span><span class="Secundario">{{historial.PAISDESTINO}}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Ciudad Destino' : 'Zielstadt' }}: </span><span class="Secundario">{{historial.CIUDADDESTINO}}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Presupuesto' : 'Budget' }}: </span><span class="Secundario">{{historial.PRESUPUESTO | currency : historial.ORIGEN}}</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2>{{ _formServ.idioma === 'COP' ? 'Coordenadas' : 'Koordinaten' }}</h2>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Longitud' : 'Länge' }}: </span><span class="Secundario">{{historial.LONGITUD | number:'1.2-2' }}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Latitud' : 'Breite' }}: </span><span class="Secundario">{{historial.LATITUD | number:'1.2-2' }}</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2>{{ _formServ.idioma === 'COP' ? 'Clima' : 'Klima' }}</h2>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Humedad' : 'Feuchtigkeit' }}: </span><span class="Secundario">{{historial.HUMEDAD}}%</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura' : 'Temperatur' }}: </span><span class="Secundario">{{ (historial.TEMPERATURA - 273.15) | number:'1.2-2' }}°</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Máxima' : 'Maximale Temperatur' }}: </span><span class="Secundario">{{historial.TEMPERATURAMAXIMA}}%</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Mínima' : 'Mindesttemperatur' }}: </span><span class="Secundario">{{ (historial.TEMPERATURAMINIMA - 273.15) | number:'1.2-2' }}°</span>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h2>{{ _formServ.idioma === 'COP' ? 'Información Monetaria' : 'Monetäre Informationen' }}</h2>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Moneda' : 'Währung' }}: </span><span class="Secundario">{{historial.NOMBREMONEDA}}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Representación' : 'Darstellung' }}: </span><span class="Secundario">{{historial.MONEDAREPRESENTACION}}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Precio ' : 'Preis' }}: </span><span class="Secundario"> {{1 | currency : _formServ.idioma}} -> {{historial.PRECIO | currency :historial.MONEDAREPRESENTACION}}</span>
+        </div>
+        <div class="col">
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Presupuesto en ' : 'Budget in' }} {{historial.MONEDAREPRESENTACION}}: </span><span class="Secundario">{{historial.CONVERSION | currency : historial.MONEDAREPRESENTACION}}</span>
+        </div>
+    </div>
+    <hr>
+</div>
