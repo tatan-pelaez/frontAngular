@@ -1,7 +1,7 @@
 <div class="row" [formGroup]="formDos">
     <div class="col-6">
         <div class="form-floating mb-2">
-            <input type="number" class="form-control" formControlName="PRESUPUESTO" monetaryFormat>
+            <input type="number" class="form-control" formControlName="PRESUPUESTO" (input)="validateInput($event)">
             <label for="ssnDoctFrm">{{ _formServ.idioma === 'COP' ? 'Presupuesto' : 'budget' }}</label>
         </div>
     </div>

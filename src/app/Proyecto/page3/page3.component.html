@@ -36,7 +36,7 @@
 </div>
 <div class="row mt-2">
     <div class="col">
-        <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Máxima' : 'Maximale Temperatur' }}: </span><span class="Secundario">{{_proServ.datosprincipales.TEMPERATURAMAXIMA}}%</span>
+        <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Máxima' : 'Maximale Temperatur' }}: </span><span class="Secundario">{{(_proServ.datosprincipales.TEMPERATURAMAXIMA - 273.15) | number:'1.2-2' }}°</span>
     </div>
     <div class="col">
         <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Mínima' : 'Mindesttemperatur' }}: </span><span class="Secundario">{{ (_proServ.datosprincipales.TEMPERATURAMINIMA - 273.15) | number:'1.2-2' }}°</span>

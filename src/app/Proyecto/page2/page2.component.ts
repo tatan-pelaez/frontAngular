@@ -7,9 +7,11 @@ import { FormhelpService } from 'src/app/services/formhelp.service';
   templateUrl: './page2.component.html',
   styleUrls: ['./page2.component.css']
 })
+
 export class Page2Component implements OnInit {
   formDos: FormGroup = new FormGroup({});
   formData: any;
+  
   constructor(
     private fb: FormBuilder,
     public _formServ : FormhelpService,
@@ -30,5 +32,11 @@ export class Page2Component implements OnInit {
     this.formDos.valueChanges.subscribe((res: any) =>{
       this._formServ.setFormDataDos(this.formDos);
     })
+  }
+
+  validateInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/[^0-9]/g, '');
+    this.formDos.get('PRESUPUESTO')?.setValue(input.value);
   }
 }

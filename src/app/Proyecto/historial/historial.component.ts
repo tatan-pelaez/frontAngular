@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { combineLatest } from 'node_modules-/rxjs';
+import { combineLatest } from 'rxjs';
 import { FormhelpService } from 'src/app/services/formhelp.service';
 
 @Component({

@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
       const page = this._formServ.page;
       if(page === 1 && !this.formData.invalid){
         this._formServ.page = 2;
-      }else if(page === 2 && !this.formDataDos.invalid){
+      }else if(page === 2 && this.formDataDos.value && !this.formDataDos.invalid){
         this._formServ.page = 3;
       }else{
         alert('Validar los campos obligatorios.')

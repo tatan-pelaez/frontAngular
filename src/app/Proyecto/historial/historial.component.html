@@ -35,7 +35,7 @@
             <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura' : 'Temperatur' }}: </span><span class="Secundario">{{ (historial.TEMPERATURA - 273.15) | number:'1.2-2' }}°</span>
         </div>
         <div class="col">
-            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Máxima' : 'Maximale Temperatur' }}: </span><span class="Secundario">{{historial.TEMPERATURAMAXIMA}}%</span>
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Máxima' : 'Maximale Temperatur' }}: </span><span class="Secundario">{{(historial.TEMPERATURAMAXIMA - 273.15) |  number:'1.2-2' }}°</span>
         </div>
         <div class="col">
             <span class="principal">{{ _formServ.idioma === 'COP' ? 'Temperatura Mínima' : 'Mindesttemperatur' }}: </span><span class="Secundario">{{ (historial.TEMPERATURAMINIMA - 273.15) | number:'1.2-2' }}°</span>
@@ -51,7 +51,7 @@
             <span class="principal">{{ _formServ.idioma === 'COP' ? 'Representación' : 'Darstellung' }}: </span><span class="Secundario">{{historial.MONEDAREPRESENTACION}}</span>
         </div>
         <div class="col">
-            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Precio ' : 'Preis' }}: </span><span class="Secundario"> {{1 | currency : _formServ.idioma}} -> {{historial.PRECIO | currency :historial.MONEDAREPRESENTACION}}</span>
+            <span class="principal">{{ _formServ.idioma === 'COP' ? 'Precio ' : 'Preis' }}: </span><span class="Secundario"> {{1 | currency : historial.ORIGEN}} -> {{historial.PRECIO | currency :historial.MONEDAREPRESENTACION}}</span>
         </div>
         <div class="col">
             <span class="principal">{{ _formServ.idioma === 'COP' ? 'Presupuesto en ' : 'Budget in' }} {{historial.MONEDAREPRESENTACION}}: </span><span class="Secundario">{{historial.CONVERSION | currency : historial.MONEDAREPRESENTACION}}</span>

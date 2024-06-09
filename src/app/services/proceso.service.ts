@@ -6,6 +6,7 @@ import { combineLatest } from 'rxjs';
   providedIn: 'root'
 })
 export class ProcesoService {
+  ciudad : any = [];
   datospc : any = [];
   datos : any = [];
   pais : any = [];
@@ -24,6 +25,7 @@ export class ProcesoService {
       this._formServ.getClima(formuno.CIUDAD),
       this._formServ.getPaises(),
       this._formServ.getPC(),
+      this._formServ.getCiudades(),
     ]).subscribe(res =>{
       this.datospc = res[2];
       if(res){
@@ -41,6 +43,7 @@ export class ProcesoService {
         this.datosprincipales.TEMPERATURAMINIMA = this.datos.main.temp_min;
         this.convercash(monedaseleccionada)
       }
+      this.ciudad = res[3].find((a:any) => a.TX_CIUDAD === formuno.CIUDAD);
     })
   }
 
@@ -52,6 +55,7 @@ export class ProcesoService {
       this.datosprincipales.IPCONSULTA = this.datospc.ip;
       this.datosprincipales.NOMBREPC = this.datospc.hostname;
       this.datosprincipales.ORIGEN = this._formServ.idioma;
+      this.datosprincipales.FK_CIUDAD = this.ciudad.PK_CIUDAD;
       this._formServ.postHistorial(this.datosprincipales).subscribe(res =>{
 
       });
